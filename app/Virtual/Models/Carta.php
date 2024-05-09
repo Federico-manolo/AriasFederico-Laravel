@@ -1,0 +1,28 @@
+/** @OA\Schema(
+        *     schema="Carta",
+        *     @OA\Property(
+        *         property="id",
+        *         type="integer"
+        *     ),
+        *     @OA\Property(
+        *         property="descripcion",
+        *         type="string"
+        *     ),
+        *     @OA\Property(
+        *         property="costo",
+        *         type="integer"
+        *     ),
+        *     @OA\Property(
+        *         property="estadistica",
+        *         type="integer"
+        *     ),
+        *     @OA\Property(
+        *         property="categoria",
+        *         type="string"
+        *     ),
+        *     @OA\Property(
+        *         property="jugador_id",
+        *         type="integer"
+        *     )
+        * )
+        */

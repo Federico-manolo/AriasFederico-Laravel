@@ -1,0 +1,589 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API NBA",
+        "description": "API NBA Cards",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/rest/cartas": {
+            "get": {
+                "tags": [
+                    "Cartas"
+                ],
+                "summary": "Obtiene todas las cartas",
+                "operationId": "738573b2dca3e76693b2ddc8c7ae530b",
+                "responses": {
+                    "200": {
+                        "description": "Lista de todas las cartas"
+                    },
+                    "404": {
+                        "description": "No se encontraron cartas"
+                    }
+                }
+            }
+        },
+        "/rest/cartaPorId/{id}": {
+            "get": {
+                "tags": [
+                    "Cartas"
+                ],
+                "summary": "Obtiene una carta por ID",
+                "operationId": "b74956180794e4212576b351af68828a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la carta a obtener",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Carta encontrada"
+                    },
+                    "404": {
+                        "description": "No se encontró la carta"
+                    }
+                }
+            }
+        },
+        "/rest/cartasPorEquipoPorID/{id_equipo}": {
+            "get": {
+                "tags": [
+                    "Cartas"
+                ],
+                "summary": "Obtiene las cartas asociadas a un equipo por ID",
+                "operationId": "1b5db82428a71b9116933ea38f27fa59",
+                "parameters": [
+                    {
+                        "name": "id_equipo",
+                        "in": "path",
+                        "description": "ID del equipo para obtener las cartas",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de las cartas asociadas al equipo"
+                    },
+                    "404": {
+                        "description": "No se encontraron cartas asociadas al equipo"
+                    }
+                }
+            }
+        },
+        "/rest/cartaPorEquipoPorNombre/{nombre_equipo}": {
+            "get": {
+                "tags": [
+                    "Cartas"
+                ],
+                "summary": "Obtiene las cartas asociadas a un equipo por nombre",
+                "operationId": "c7aaaeab60996c4c9ced5edc7da46b7c",
+                "parameters": [
+                    {
+                        "name": "nombre_equipo",
+                        "in": "path",
+                        "description": "Nombre del equipo para obtener las cartas",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de las cartas asociadas al equipo"
+                    },
+                    "404": {
+                        "description": "No se encontraron cartas asociadas al equipo"
+                    }
+                }
+            }
+        },
+        "/rest/cartaPorJugador/{nombre_jugador}/{apellido_jugador}": {
+            "get": {
+                "tags": [
+                    "Cartas"
+                ],
+                "summary": "Obtiene la carta asociada a un jugador por nombre y apellido",
+                "operationId": "2c930fc874892d623a8963558e861e30",
+                "parameters": [
+                    {
+                        "name": "nombre_jugador",
+                        "in": "path",
+                        "description": "Nombre del jugador para obtener su carta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "apellido_jugador",
+                        "in": "path",
+                        "description": "Apellido del jugador para obtener su carta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La carta asociada al jugador"
+                    },
+                    "404": {
+                        "description": "No se encontró la carta asociada al jugador"
+                    }
+                }
+            }
+        },
+        "/rest/cartaConJugador": {
+            "get": {
+                "tags": [
+                    "Cartas"
+                ],
+                "summary": "Obtiene todas las cartas con la información del jugador asociado",
+                "operationId": "f02b1d52859b1edfc9b06e27acb3a5a9",
+                "responses": {
+                    "200": {
+                        "description": "Lista de todas las cartas con información del jugador asociado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "description": "ID de la carta",
+                                                "type": "integer"
+                                            },
+                                            "descripcion": {
+                                                "description": "Descripción de la carta",
+                                                "type": "string"
+                                            },
+                                            "costo": {
+                                                "description": "Costo de la carta",
+                                                "type": "integer"
+                                            },
+                                            "estadistica": {
+                                                "description": "Estadística asociada a la carta",
+                                                "type": "string"
+                                            },
+                                            "categoria": {
+                                                "description": "Categoría de la carta",
+                                                "type": "string"
+                                            },
+                                            "jugador": {
+                                                "description": "Información del jugador asociado a la carta",
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "ID del jugador",
+                                                        "type": "integer"
+                                                    },
+                                                    "nombre": {
+                                                        "description": "Nombre del jugador",
+                                                        "type": "string"
+                                                    },
+                                                    "apellido": {
+                                                        "description": "Apellido del jugador",
+                                                        "type": "string"
+                                                    },
+                                                    "nacionalidad": {
+                                                        "description": "Nacionalidad del jugador",
+                                                        "type": "string"
+                                                    },
+                                                    "Nro_Camiseta": {
+                                                        "description": "Número de camiseta del jugador",
+                                                        "type": "integer"
+                                                    },
+                                                    "posicion": {
+                                                        "description": "Posición del jugador",
+                                                        "type": "string"
+                                                    },
+                                                    "foto": {
+                                                        "description": "URL de la foto del jugador",
+                                                        "type": "string"
+                                                    },
+                                                    "ID_equipo": {
+                                                        "description": "ID del equipo al que pertenece el jugador",
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/equipos": {
+            "get": {
+                "tags": [
+                    "Equipos"
+                ],
+                "summary": "Obtiene todos los equipos",
+                "operationId": "fb80d16e6298c909dc7b2c10818f7a87",
+                "responses": {
+                    "200": {
+                        "description": "Lista de todos los equipos"
+                    },
+                    "404": {
+                        "description": "No se encontraron equipos"
+                    }
+                }
+            }
+        },
+        "/rest/equipoID/{id}": {
+            "get": {
+                "tags": [
+                    "Equipos"
+                ],
+                "summary": "Obtiene un equipo por ID",
+                "operationId": "43f4c70471aecab049d2bc7d2d8a3506",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del equipo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Equipo encontrado"
+                    },
+                    "404": {
+                        "description": "Equipo no encontrado"
+                    }
+                }
+            }
+        },
+        "/rest/equipoJugador/{id}": {
+            "get": {
+                "tags": [
+                    "Equipos"
+                ],
+                "summary": "Obtiene el equipo de un jugador",
+                "operationId": "66c1c13b56e8105b67fc9702ab3197fd",
+                "parameters": [
+                    {
+                        "name": "id_jugador",
+                        "in": "path",
+                        "description": "ID del jugador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Equipo del jugador"
+                    },
+                    "404": {
+                        "description": "No se encontró el jugador o no tiene equipo asignado"
+                    }
+                }
+            }
+        },
+        "/rest/jugadores": {
+            "get": {
+                "tags": [
+                    "Jugadores"
+                ],
+                "summary": "Obtiene todos los jugadores",
+                "operationId": "98232a020edd1bb2107bad6f2b7e8e8b",
+                "responses": {
+                    "200": {
+                        "description": "Lista de todos los jugadores"
+                    },
+                    "404": {
+                        "description": "No se encontraron jugadores"
+                    }
+                }
+            }
+        },
+        "/rest/jugador/{nombre}/{apellido}": {
+            "get": {
+                "tags": [
+                    "Jugadores"
+                ],
+                "summary": "Obtiene un jugador por su nombre y apellido",
+                "operationId": "dbc3ca0785290c727c32244141e34b20",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Nombre del jugador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "surname",
+                        "in": "path",
+                        "description": "Apellido del jugador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Información del jugador"
+                    },
+                    "404": {
+                        "description": "No se encontró el jugador"
+                    }
+                }
+            }
+        },
+        "/rest/jugadorPorID/{id}": {
+            "get": {
+                "tags": [
+                    "Jugadores"
+                ],
+                "summary": "Obtiene un jugador por ID",
+                "operationId": "521f6588bbdbd85136a0aa290e5ea922",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del jugador",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Jugador encontrado"
+                    },
+                    "404": {
+                        "description": "Jugador no encontrado"
+                    }
+                }
+            }
+        },
+        "/rest/jugadoresConEquipos": {
+            "get": {
+                "tags": [
+                    "Jugadores"
+                ],
+                "summary": "Obtiene todos los jugadores con información de sus respectivos equipos",
+                "operationId": "3d9a608b371ea0bf91e06426cd5fb6a0",
+                "responses": {
+                    "200": {
+                        "description": "Lista de todos los jugadores con información de sus respectivos equipos"
+                    },
+                    "404": {
+                        "description": "No se encontraron jugadores con información de sus respectivos equipos"
+                    }
+                }
+            }
+        },
+        "/rest/cargarPedido": {
+            "post": {
+                "tags": [
+                    "Pedidos"
+                ],
+                "summary": "Crea un nuevo pedido",
+                "operationId": "650a8b15c7c3ed77442860dfbfcdd237",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "estado": {
+                                        "description": "Estado del pedido",
+                                        "type": "string"
+                                    },
+                                    "fecha_pedido": {
+                                        "description": "Fecha en que se realizó el pedido",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "fecha_entrega": {
+                                        "description": "Fecha de entrega del pedido",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "monto_total": {
+                                        "description": "Monto total del pedido",
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "description": "ID del usuario que realizó el pedido",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pedido creado correctamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pedido creado correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Los datos proporcionados no son válidos"
+                                        },
+                                        "errors": {
+                                            "description": "Objeto con los errores de validación",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/rest/miUsuario/{id}": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Obtener un usuario por ID",
+                "description": "Retorna un usuario según su ID",
+                "operationId": "771e00bbab11d6582b61ac46ddc30f2b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario a obtener",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado"
+                    }
+                }
+            }
+        },
+        "/rest/miUsuario/nuevaContraseña/{id}": {
+            "put": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Actualizar la contraseña de un usuario por ID",
+                "description": "Actualiza la contraseña de un usuario según su ID",
+                "operationId": "688e833230b727ce9ea51c71feec2826",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario a actualizar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "password"
+                                ],
+                                "properties": {
+                                    "password": {
+                                        "type": "string",
+                                        "example": "nuevacontraseña"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario actualizado correctamente"
+                    },
+                    "404": {
+                        "description": "Usuario no encontrado"
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "El campo password es obligatorio."
+                                        },
+                                        "errors": {
+                                            "type": "object",
+                                            "example": {
+                                                "password": [
+                                                    "El campo password es obligatorio."
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

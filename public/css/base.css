@@ -1,0 +1,29 @@
+.body{
+  background-color: #2f3134;
+}
+.navbar {
+  background-color: #333;
+  margin-bottom: 20px;
+
+  }
+  
+  .navbar-brand {
+  font-size: 1.5rem;
+  }
+  
+  .nav-link {
+  font-size: 1.2rem;
+  color: #fff;
+  }
+  
+  .nav-link:hover {
+  color: #ccc;
+  }
+  
+  .navbar-toggler {
+  border-color: #fff;
+  }
+  
+  .navbar-toggler-icon {
+  background-color: #fff;
+  }

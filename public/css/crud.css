@@ -1,0 +1,92 @@
+
+.search-form{
+    color:white;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.title{
+    color:white;
+    margin: 0;
+}
+.title-container {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+  }
+
+/* hover effect */
+table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* background color for navbar */
+.navbar {
+    background-color: #f8f9fa;
+}
+
+
+    
+.dataTables_info {
+    color: #5bdbff;
+    font-weight: bold;
+    margin-left: 25px;
+}
+.dataTables_wrapper .dataTables_filter label,
+.dataTables_wrapper .dataTables_length label  {
+    color: white;
+}
+/* DataTable search bar */
+.dataTables_filter label {
+    display: flex;
+    align-items: center;
+}
+
+/* DataTable page size dropdown */
+.dataTables_length label {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+  .dataTables_length,
+.dataTables_filter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px auto;
+}
+
+.dataTables_length label,
+.dataTables_filter label {
+  margin-right: 10px;
+}
+
+.dataTables_filter input[type="search"] {
+  width: 100%;
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+}
+
+.dataTables_length select {
+    margin:5px;
+    min-width: 50px; 
+}
+
+.dataTables_length select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+}
+
+table tbody tr.borrado  {
+  color: red;
+}
+
+table tbody tr.borrado:hover {
+  color: #e89898;
+}
